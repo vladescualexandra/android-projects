@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/old_menu_new"
+        android:title="@string/old_menu_new_expense"/>
+
+    <item
+        android:id="@+id/old_menu_select_account"
+        android:title="@string/old_menu_select_account"/>
+</menu>
