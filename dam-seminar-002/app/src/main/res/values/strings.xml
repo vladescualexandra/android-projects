@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">dam-seminar-002</string>
+    <string name="add_save">Save</string>
+    <string name="add_faculty">Faculty</string>
+    <string name="add_age">Age</string>
+    <string name="main_name">Name</string>
+</resources>
