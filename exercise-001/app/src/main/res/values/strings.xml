@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="student_name">Name</string>
+    <string name="student_grupa">Grupa</string>
+    <string name="student_an">An</string>
+    <string name="student_serie">Serie</string>
+</resources>
