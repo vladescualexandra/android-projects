@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">exercise-002</string>
+    <string name="login_remember_me">Remember me</string>
+    <string name="login">Login</string>
+    <string name="invalid_passord">Password must have more than 3 characters.</string>
+    <string name="default_welcome_text"><![CDATA[Salut, <username>!]]></string>
+    <string name="main_welcome_text_format">Salut, %1$s!</string>
+    <string name="main_login">Login</string>
+
+    <string-array name="account_names">
+        <item>Popescu Daniel</item>
+        <item>Voica Maria</item>
+        <item>Voiculescu Marius</item>
+        <item>Stroie Alina</item>
+        <item>Dumitru Alexandru</item>
+    </string-array>
+</resources>
