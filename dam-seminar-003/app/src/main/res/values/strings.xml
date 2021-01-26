@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">dam-seminar-003</string>
+    <string name="add_name">Name</string>
+    <string name="add_enrollment_date">Enrollment date</string>
+    <string name="add_age">Age</string>
+    <string name="add_faculty">Faculty</string>
+    <string name="add_mode_of_study">Mode of study</string>
+    <string name="add_distance">DISTANCE</string>
+    <string name="add_full_time">FULL TIME</string>
+    <string name="add_save">Save</string>
+    <string name="tax_amount">Amount</string>
+    <string name="tax_save">Save</string>
+    <string name="tax_account_number">Account Number</string>
+    <string name="tax_text">Tax</string>
 </resources>
