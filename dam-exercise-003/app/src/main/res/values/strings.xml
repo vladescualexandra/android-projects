@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">dam-exercise-003</string>
+    <string name="old_menu_profile">Profile</string>
+    <string name="profile_nume">Nume</string>
+    <string name="profile_functie">Functie</string>
+    <string name="profile_save">Save</string>
+    <string name="welcome_message_format">Salut, %1$s !</string>
+</resources>
