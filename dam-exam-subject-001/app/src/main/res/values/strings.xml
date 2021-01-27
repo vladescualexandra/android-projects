@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">dam-exam-subject-001</string>
+    <string name="bid_name">Name</string>
+    <string name="bid_in_progress">In progress</string>
+    <string name="bid_closed">Closed</string>
+    <string name="bid_registered">Registered.</string>
+    <string name="bid_save">Save</string>
+    <string name="add_bid">Add bid</string>
+    <string name="main_sort">Sort</string>
+    <string name="save">Save</string>
+</resources>

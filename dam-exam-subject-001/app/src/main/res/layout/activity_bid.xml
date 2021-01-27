@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".BidActivity"
+        android:padding="16sp">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bid_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/bid_name" />
+
+            <RadioGroup
+                android:id="@+id/bid_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/bid_state_in_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bid_in_progress"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/bid_state_closed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bid_closed" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/bid_object"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <DatePicker
+                android:id="@+id/bid_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <TimePicker
+                android:id="@+id/bid_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <CheckBox
+                android:id="@+id/bid_registered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bid_registered"/>
+
+            <SeekBar
+                android:id="@+id/bid_bid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/bid_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bid_save"
+                android:layout_gravity="center"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+</ScrollView>
