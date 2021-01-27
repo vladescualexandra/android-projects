@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">dam-exercise-004</string>
+    <string name="main_add">Add</string>
+    <string name="add_destination">Destination</string>
+    <string name="add_price">Price</string>
+    <string name="add_save">Save</string>
+</resources>
