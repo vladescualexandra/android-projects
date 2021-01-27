@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">dam-seminar-012</string>
+    <string name="main_name">Name</string>
+    <string name="main_team">Team</string>
+    <string name="main_role"> Role</string>
+    <string name="main_available_coaches">Available Coaches</string>
+    <string name="main_clear_fields">Clear Fields</string>
+    <string name="iv_row_picture">picture</string>
+    <string name="lv_row_default_value">-</string>
+    <string name="main_coach_name_error">Invalid Name</string>
+    <string name="main_coach_team_error">Invalid Team</string>
+    <string name="chart_label_format">%1$s - %2$d</string>
+
+    <string-array name="coach_role_values">
+        <item>Head Coach</item>
+        <item>Assistant Coach</item>
+        <item>Goalkeeper Coach</item>
+        <item>Fitness Coach</item>
+    </string-array>
+</resources>
