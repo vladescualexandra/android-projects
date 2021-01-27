@@ -11,4 +11,4 @@
 - dam-seminar-008: SharedPreferences. --- TO DO
 - dam-seminar-010: Room Database.
 - dam-seminar-011: Firebase. --- TO DO
-- dam-seminar-012: Graphics.
+- dam-seminar-012: Bar Graph.
