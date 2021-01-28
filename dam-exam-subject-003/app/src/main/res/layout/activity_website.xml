@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".WebsiteActivity">
+
+        <!--    private String name; // Spinner-->
+        <!--    private String date; // DatePicker-->
+        <!--    private String time; // TimePicker;-->
+        <!--    private String type; // RadioGroup -> Entertainment/Work-->
+        <!--    private int span; // SeekBar -> as in Attention Span-->
+        <!--    private boolean incognito; // CheckBox-->
+
+        <Spinner
+            android:id="@+id/website_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <DatePicker
+            android:id="@+id/website_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TimePicker
+            android:id="@+id/website_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <RadioGroup
+            android:id="@+id/website_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:checked="true"
+                android:id="@+id/website_type_entertainment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/entertainment" />
+
+            <RadioButton
+                android:id="@+id/website_type_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/work" />
+        </RadioGroup>
+
+        <SeekBar
+            android:id="@+id/website_span"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="1"/>
+
+
+        <CheckBox
+            android:id="@+id/website_incognito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/incognito" />
+
+        <Button
+            android:id="@+id/website_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
+
+    </LinearLayout>
+</ScrollView>

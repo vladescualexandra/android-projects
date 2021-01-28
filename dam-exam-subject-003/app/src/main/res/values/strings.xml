@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">dam-exam-subject-003</string>
+    <string name="work">Work</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="incognito">Incognito</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+</resources>

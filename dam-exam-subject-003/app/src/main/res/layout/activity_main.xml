@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/main_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <RadioGroup
+        android:id="@+id/rg_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/fiter_alfabetic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Alfabetic (A-Z)" />
+
+        <RadioButton
+            android:id="@+id/filter_invers_alfabetic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invers Alfabetic (Z-A)" />
+
+        <RadioButton
+            android:id="@+id/filter_crescator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crescător după un câmp numeric" />
+
+        <RadioButton
+            android:id="@+id/filter_descrescator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrescător după un câmp numeric" />
+
+        <RadioButton
+            android:id="@+id/filter_alfabetic_crescator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A-Z și crescător" />
+
+        <RadioButton
+            android:id="@+id/fiter_alfabetic_descrescator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A-Z și descrescător" />
+
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/main_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <ListView
+        android:id="@+id/main_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
