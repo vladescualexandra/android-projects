@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">dam-exam-subject-002</string>
+    <string name="name">Name</string>
+    <string name="choose_date">Choose date</string>
+    <string name="choose_time">Choose time</string>
+    <string name="mm">MM</string>
+    <string name="fm">FM</string>
+    <string name="ff">ff</string>
+    <string name="save">Save</string>
+    <string name="add_marriage">Add marriage</string>
+    <string name="graph">Graph</string>
+    <string name="normalizare_date">Normalizare date</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
