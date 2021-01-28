@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">dam-exam-subject-004</string>
+    <string name="name">Name</string>
+    <string name="bachelor">Bachelor</string>
+    <string name="save">Save</string>
+    <string name="invalid_name">Name too short.</string>
+    <string name="add">Add</string>
+    <string name="clasificare">Clasificare</string>
+    <string name="editare">Editare</string>
+    <string name="master">Master</string>
+    <string name="interview">Interview</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+</resources>

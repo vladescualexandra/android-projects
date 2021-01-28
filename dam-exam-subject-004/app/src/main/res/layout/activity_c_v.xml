@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CVActivity">
+
+    <!--    private String name; // EditText-->
+    <!--    private String position; // Spinner-->
+    <!--    private int age; // SeekBar-->
+    <!--    private String degree; // RadioGroup-->
+    <!--    private boolean interview; // CheckBox-->
+
+    <EditText
+        android:id="@+id/cv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/name" />
+
+    <Spinner
+        android:id="@+id/cv_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:id="@+id/cv_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:min="18"
+        android:max="65"/>
+
+    <RadioGroup
+        android:id="@+id/cv_degree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:checked="true"
+            android:id="@+id/cv_degree_master"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/master" />
+
+        <RadioButton
+            android:id="@+id/cv_degree_bachelor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bachelor" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/cv_interview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/interview" />
+
+    <Button
+        android:id="@+id/cv_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/save" />
+</LinearLayout>
