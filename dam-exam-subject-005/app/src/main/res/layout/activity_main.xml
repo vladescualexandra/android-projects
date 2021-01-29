@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/main_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        />
+
+    <Spinner
+        android:id="@+id/main_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"/>
+
+    <Button
+        android:id="@+id/btn_double"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="double"/>
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.a1088_vladescualexandrabianca.GraphFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300sp" />
+
+
+</LinearLayout>
