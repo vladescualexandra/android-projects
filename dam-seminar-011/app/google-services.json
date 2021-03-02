@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "307139598363",
+    "firebase_url": "https://dam-app-2b7dc.firebaseio.com",
+    "project_id": "dam-app-2b7dc",
+    "storage_bucket": "dam-app-2b7dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307139598363:android:89104605a1d6668fe040be",
+        "android_client_info": {
+          "package_name": "eu.ase.ro.seminar11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307139598363-pr9pqp3ds261t3anp58g62ppq91t8uq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF7eSg8XgJ4bquZGTDQKeknf2x7fM704k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307139598363-pr9pqp3ds261t3anp58g62ppq91t8uq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

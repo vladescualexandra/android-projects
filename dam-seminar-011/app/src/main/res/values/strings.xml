@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Seminar11</string>
+    <string name="main_name">Name</string>
+    <string name="main_team">Team</string>
+    <string name="main_role"> Role</string>
+    <string name="main_available_coaches">Available Coaches</string>
+    <string name="main_clear_fields">Clear Fields</string>
+    <string name="iv_row_picture">picture</string>
+    <string name="lv_row_default_value">-</string>
+    <string name="main_coach_name_error">Invalid Name</string>
+    <string name="main_coach_team_error">Invalid Team</string>
+
+    <string-array name="coach_role_values">
+        <item>Head Coach</item>
+        <item>Assistant Coach</item>
+        <item>Goalkeeper Coach</item>
+        <item>Fitness Coach</item>
+    </string-array>
+</resources>
