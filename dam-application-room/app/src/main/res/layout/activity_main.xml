@@ -11,11 +11,32 @@
         android:id="@+id/main_adauga_agent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="Adauga agent" />
+
+    <Button
+        android:id="@+id/main_sterge_filtrele"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sterge filtrele" />
+
+    <Button
+        android:id="@+id/main_sterge_inregistrari"
+        android:text="Sterge inregistrari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/main_spn_filtru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/main_et_filtru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <ListView
         android:id="@+id/main_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -3,6 +3,7 @@ package dam.application.room;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,9 +22,12 @@ import android.widget.Toast;
 import dam.application.room.model.AgentVanzare;
 import dam.application.room.model.Domeniu;
 
+import static java.lang.Integer.parseInt;
+
 public class AdaugaAgentActivity extends AppCompatActivity {
 
     public static String EXTRA_AGENT = "agent";
+    public static String EXTRA_AGENT_UPDATE = "agent_update";
     private Intent intent;
     private AgentVanzare agent;
 
@@ -37,12 +41,59 @@ public class AdaugaAgentActivity extends AppCompatActivity {
 
     Button btn_save;
 
+    String[] salarii = new String[]{"1000", "2000", "3000"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adauga_agent);
 
         initializareComponente();
+
+        AgentVanzare agentVanzare = (AgentVanzare) intent.getSerializableExtra(EXTRA_AGENT);
+        if (agentVanzare != null) {
+            agent.setId(agentVanzare.getId());
+            et_nume.setText(agentVanzare.getNume());
+            sb_tarif.setProgress(agentVanzare.getTarif());
+            if (agentVanzare.getDomeniu().equals(Domeniu.DOMENIU_1.toString())) {
+                rg_domeniu.check(R.id.add_rb_domeniu_1);
+            } else {
+                rg_domeniu.check(R.id.add_rb_domeniu_2);
+            }
+
+            String[] pieces = agentVanzare.getData().split("/");
+            // 0 - day
+            // 1 - month
+            // 2 - year
+            dp_data.init(parseInt(pieces[2]),
+                    parseInt(pieces[1]),
+                    parseInt(pieces[0]),
+                    null);
+
+            String[] time = agentVanzare.getTimp().split(":");
+            // 0 - hh
+            // 1 - mm
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                tp_timp.setHour(parseInt(time[0]));
+                tp_timp.setMinute(parseInt(time[1]));
+            }
+
+            switch (agentVanzare.getSalariu()) {
+                case 1000:
+                    spn_salariu.setSelection(0);
+                    break;
+                case 2000:
+                    spn_salariu.setSelection(1);
+                    break;
+                case 3000:
+                    spn_salariu.setSelection(2);
+                    break;
+            }
+
+            if (agentVanzare.isParticular()) {
+                cb_particular.setChecked(true);
+            }
+        }
 
     }
 
@@ -64,7 +115,6 @@ public class AdaugaAgentActivity extends AppCompatActivity {
     }
 
     private void setSpinner() {
-        String[] salarii = new String[]{"1000", "2000", "3000"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>
                 (getApplicationContext(),
                         android.R.layout.simple_spinner_dropdown_item,
@@ -94,7 +144,7 @@ public class AdaugaAgentActivity extends AppCompatActivity {
                 String timp = Util.fromTimePicker(tp_timp);
                 agent.setTimp(timp);
 
-                int salariu = Integer.parseInt(spn_salariu.getSelectedItem().toString());
+                int salariu = parseInt(spn_salariu.getSelectedItem().toString());
                 agent.setSalariu(salariu);
 
                 boolean particular = cb_particular.isChecked();

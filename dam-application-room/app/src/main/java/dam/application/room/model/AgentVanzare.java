@@ -35,6 +35,7 @@ public class AgentVanzare implements Serializable {
     @ColumnInfo(name = "particular")
     private boolean particular; // CheckBox
 
+    @Ignore
     public AgentVanzare() {
     }
 
@@ -64,7 +65,8 @@ public class AgentVanzare implements Serializable {
     @Override
     public String toString() {
         return "AgentVanzare{" +
-                "nume='" + nume + '\'' +
+                "id=" + id +
+                ", nume='" + nume + '\'' +
                 ", tarif=" + tarif +
                 ", domeniu='" + domeniu + '\'' +
                 ", data='" + data + '\'' +
@@ -72,6 +74,14 @@ public class AgentVanzare implements Serializable {
                 ", salariu=" + salariu +
                 ", particular=" + particular +
                 '}';
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNume() {
