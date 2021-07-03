@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Seminar7</string>
+    <string name="add_bank_account_save">Save</string>
+    <string name="add_bank_account_bank_name">Bank Name</string>
+    <string name="add_bank_account_expiration_month">Expiration Month</string>
+    <string name="add_bank_account_card_number">Card Number</string>
+    <string name="add_bank_account_card_holder_name">Card Holder Name</string>
+    <string name="add_bank_account_expiration_year">Expiration Year</string>
+    <string name="add_bank_account_card_holder_name_error_message">Invalid Card Holder Name. Minim 3 characters</string>
+    <string name="add_bank_account_card_number_error_message">Invalid Card Number. Requires 16 characters</string>
+    <string name="add_bank_account_card_expiration_month_error_message">Invalid Expiration Month. Requires a value between 1 and 12</string>
+    <string name="add_bank_account_expiration_year_error_message">Invalid Expiration Year. Requires 4 characters</string>
+    <string name="main_new_bank_account_added_message">Un cont nou a fost adaugat</string>
+    <string name="month_year">month/year</string>
+    <string name="lv_row_view_no_content">-</string>
+    <string name="lv_row_view_expiration_time">%1$d / %2$d</string>
+    <string name="lv_row_view_card_number_format">%1$s %2$s %3$s %4$s</string>
+
+    <string-array name="bank_names">
+        <item>ING</item>
+        <item>BCR</item>
+        <item>BRD</item>
+        <item>RBk</item>
+        <item>BTk</item>
+    </string-array>
+</resources>
