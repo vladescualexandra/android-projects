@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,7 +21,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import dam.application.room.async.Callback;
 import dam.application.room.db.AgentService;
 import dam.application.room.model.AgentVanzare;
 
@@ -70,17 +70,26 @@ public class MainActivity extends AppCompatActivity {
         lv_agenti.setOnItemClickListener(actualizeazaEventListener());
 
         agentService = new AgentService(getApplicationContext());
-        agentService.getAll(getAllCallback());
+        getAll();
+    }
+
+    private View.OnClickListener stergeFiltreEventListener() {
+        return v -> getAll();
+    }
+
+    private View.OnClickListener stergeInregistrariEventListener() {
+        return v -> {
+            for (AgentVanzare agentVanzare : listaAgenti) {
+                delete(agentVanzare);
+            }
+        };
     }
 
     private AdapterView.OnItemClickListener actualizeazaEventListener() {
-        return new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), AdaugaAgentActivity.class);
-                intent.putExtra(AdaugaAgentActivity.EXTRA_AGENT, listaAgenti.get(position));
-                startActivityForResult(intent, REQUEST_CODE_UPDATE_AGENT);
-            }
+        return (parent, view, position, id) -> {
+            Intent intent = new Intent(getApplicationContext(), AdaugaAgentActivity.class);
+            intent.putExtra(AdaugaAgentActivity.EXTRA_AGENT, listaAgenti.get(position));
+            startActivityForResult(intent, REQUEST_CODE_UPDATE_AGENT);
         };
     }
 
@@ -89,23 +98,33 @@ public class MainActivity extends AppCompatActivity {
             if (event.getAction() == KeyEvent.ACTION_DOWN &&
                     keyCode == KeyEvent.KEYCODE_ENTER) {
 
-                String criteriu = spn_filtru.getSelectedItem().toString();
-                String filtru = et_filtru.getText().toString();
-
-                if (criteriu.equals(Filtru.NUME.toString())) {
-                    agentService.filtruNume(getAllCallback(), filtru);
-                } else if (criteriu.equals(Filtru.TARIF.toString())) {
-                    int f = Integer.parseInt(filtru);
-                    agentService.filtruTarif(getAllCallback(), f);
-                } else if (criteriu.equals(Filtru.SALARIU.toString())) {
-                    int f = Integer.parseInt(filtru);
-                    agentService.filtruSalariu(getAllCallback(), f);
-                }
-
+                filtreaza();
                 return true;
             }
             return false;
         };
+    }
+
+    private void filtreaza() {
+        String criteriu = spn_filtru.getSelectedItem().toString();
+        String filtru = et_filtru.getText().toString();
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                List<AgentVanzare> results = agentService.filtru(criteriu, filtru);
+                new Handler(getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (results != null) {
+                            listaAgenti.clear();
+                            listaAgenti.addAll(results);
+                            notifyAdapter();
+                        }
+                    }
+                });
+            }
+        };
+        thread.start();
     }
 
     private void setSpinnerFiltru() {
@@ -117,28 +136,6 @@ public class MainActivity extends AppCompatActivity {
         spn_filtru.setAdapter(adapter);
     }
 
-    private View.OnClickListener stergeFiltreEventListener() {
-        return v -> {
-            agentService.getAll(getAllCallback());
-        };
-    }
-
-    private View.OnClickListener stergeInregistrariEventListener() {
-        return v -> {
-            for (AgentVanzare agent : listaAgenti) {
-                agentService.delete(stergeInregistrareCallback(agent), agent);
-            }
-        };
-    }
-
-    private Callback<Integer> stergeInregistrareCallback(AgentVanzare agent) {
-        return result -> {
-            if (result != -1) {
-                listaAgenti.remove(agent);
-            }
-            notifyAdapter();
-        };
-    }
 
     private void setAdapter() {
         ArrayAdapter<AgentVanzare> adapter = new ArrayAdapter<>
@@ -166,64 +163,102 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && data != null) {
             AgentVanzare agent = (AgentVanzare) data.getSerializableExtra(AdaugaAgentActivity.EXTRA_AGENT);
             if (requestCode == REQUEST_CODE_ADAUGA_AGENT) {
-                agentService.insert(insertCallback(), agent);
+                insert(agent);
             } else if (requestCode == REQUEST_CODE_UPDATE_AGENT) {
-                agentService.update(updateCallback(), agent);
+                update(agent);
             }
         }
     }
 
 
-    private Callback<List<AgentVanzare>> getAllCallback() {
-        return result -> {
-            if (result != null) {
-                listaAgenti.clear();
-                listaAgenti.addAll(result);
-                notifyAdapter();
-            }
-        };
-    }
-
-    private void getAllV2() {
+    private void getAll() {
         Thread thread = new Thread() {
             @Override
             public void run() {
                 List<AgentVanzare> results = agentService.getAll();
-            }
-        }
-    }
-
-    private Callback<AgentVanzare> insertCallback() {
-        return result -> {
-            if (result != null) {
-                listaAgenti.add(result);
-                notifyAdapter();
-            }
-        };
-    }
-
-    private Callback<AgentVanzare> updateCallback() {
-        return result -> {
-            if (result != null) {
-                for (AgentVanzare agentVanzare: listaAgenti) {
-                    Log.e("for", agentVanzare.toString());
-
-                    if (agentVanzare.getId() == result.getId()) {
-                        Log.e("runRes", agentVanzare.toString());
-                        agentVanzare.setParticular(result.isParticular());
-                        agentVanzare.setSalariu(result.getSalariu());
-                        agentVanzare.setTimp(result.getTimp());
-                        agentVanzare.setData(result.getData());
-                        agentVanzare.setDomeniu(result.getDomeniu());
-                        agentVanzare.setTarif(result.getTarif());
-                        agentVanzare.setNume(result.getNume());
-                        break;
+                new Handler(getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (results != null) {
+                            listaAgenti.clear();
+                            listaAgenti.addAll(results);
+                            notifyAdapter();
+                        }
                     }
-                }
-                notifyAdapter();
-
+                });
             }
         };
+        thread.start();
     }
+
+    private void insert(AgentVanzare agent) {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                AgentVanzare result = agentService.insert(agent);
+                new Handler(getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (result != null) {
+                            listaAgenti.add(result);
+                            notifyAdapter();
+                        }
+                    }
+                });
+            }
+        };
+        thread.start();
+    }
+
+    private void delete(AgentVanzare agent) {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                int result = agentService.delete(agent);
+                new Handler(getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (result != -1) {
+                            listaAgenti.remove(agent);
+                            notifyAdapter();
+                        }
+                    }
+                });
+            }
+        };
+        thread.start();
+    }
+
+
+    private void update(AgentVanzare agent) {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                AgentVanzare result = agentService.update(agent);
+                new Handler(getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (result != null) {
+                            for (AgentVanzare agentVanzare : listaAgenti) {
+
+                                if (agentVanzare.getId() == result.getId()) {
+                                    agentVanzare.setParticular(result.isParticular());
+                                    agentVanzare.setSalariu(result.getSalariu());
+                                    agentVanzare.setTimp(result.getTimp());
+                                    agentVanzare.setData(result.getData());
+                                    agentVanzare.setDomeniu(result.getDomeniu());
+                                    agentVanzare.setTarif(result.getTarif());
+                                    agentVanzare.setNume(result.getNume());
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        };
+        thread.start();
+    }
+
 
 }
