@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Seminar10</string>
+    <string name="add_expense_date">Date</string>
+    <string name="add_expense_category">Category</string>
+    <string name="add_expense_amount">Amount</string>
+    <string name="add_expense_description">Description</string>
+    <string name="add_expense_save">Save</string>
+    <string name="lv_expense_row_date">Date</string>
+    <string name="lv_expense_row_category">Category</string>
+    <string name="lv_expense_row_amount">Amount</string>
+    <string name="add_expense_row_logo">logo</string>
+    <string name="lv_expense_row_default_value">-</string>
+
+    <string name="lv_expense_row_amount_value">%1$s lei</string>
+    <string name="add_expense_date_error_message">Invalid date! Accepted format dd/MM/yyyy</string>
+    <string name="add_expense_amount_error_message">Invalid Amount</string>
+
+    <string-array name="add_expense_category_values">
+        <item>Food</item>
+        <item>Present</item>
+        <item>Gym</item>
+        <item>Clothes</item>
+        <item>Car</item>
+        <item>Bank loans</item>
+    </string-array>
+</resources>

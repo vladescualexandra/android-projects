@@ -184,6 +184,15 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
+    private void getAllV2() {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                List<AgentVanzare> results = agentService.getAll();
+            }
+        }
+    }
+
     private Callback<AgentVanzare> insertCallback() {
         return result -> {
             if (result != null) {
